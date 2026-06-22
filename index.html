@@ -182,6 +182,31 @@
             box-shadow: 2px 2px 0px var(--shadow-color);
         }
 
+        /* Блок статистики */
+        .stats-box {
+            background: var(--card-bg);
+            border: 3px solid var(--card-border);
+            padding: 12px;
+            box-shadow: 4px 4px 0px var(--shadow-color);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            text-align: center;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .stat-value {
+            font-size: 20px;
+            font-weight: 900;
+        }
+        .stat-value.published { color: var(--success-green); }
+        .stat-value.pending { color: var(--pending-orange); }
+
         .filter-box {
             background: var(--card-bg);
             border: 3px solid var(--card-border);
@@ -192,7 +217,6 @@
             gap: 12px;
         }
 
-        /* Исправленный класс подписей полей */
         .filter-label {
             display: block;
             margin-bottom: 6px;
@@ -203,7 +227,7 @@
             letter-spacing: 0.5px;
         }
 
-        select, input[type="text"].search-input, input[type="email"], input[type="password"] {
+        select, input[type="text"].search-input, input[type="email"], input[type="password"], input[type="datetime-local"] {
             width: 100%;
             background: var(--input-bg);
             border: 2px solid var(--card-border);
@@ -215,7 +239,7 @@
             border-radius: 0px;
         }
 
-        select { cursor: pointer; }
+        select, input[type="datetime-local"] { cursor: pointer; }
 
         .reviews-grid {
             display: flex;
@@ -295,7 +319,31 @@
         .status-2 { background: var(--text-sub); color: #000; }
 
         .stars-row { display: flex; gap: 4px; align-items: center; }
-        .brutal-star { width: 16px; height: 16px; }
+        
+        /* Интерактивный ряд звезд для редактирования */
+        .stars-edit-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+        
+        .star-btn {
+            background: var(--input-bg);
+            border: 2px solid var(--card-border);
+            padding: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 2px 2px 0px var(--shadow-color);
+            transition: transform 0.05s ease;
+        }
+        .star-btn:active {
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0px var(--shadow-color);
+        }
+
+        .brutal-star { width: 18px; height: 18px; pointer-events: none; }
         .brutal-star path { stroke: #000000; stroke-width: 2.5px; stroke-linejoin: miter; }
         .brutal-star.filled path { fill: var(--star-filled); }
         .brutal-star.empty path { fill: var(--star-empty); }
@@ -328,7 +376,7 @@
             font-family: inherit;
         }
         
-        textarea:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="password"]:focus, select:focus {
+        textarea:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="datetime-local"]:focus, select:focus {
             border-color: var(--btn-primary-bg);
         }
 
@@ -394,7 +442,7 @@
         <div class="auth-box">
             <div>
                 <span class="filter-label">Email:</span>
-                <input type="email" id="authEmail" placeholder="Почта">
+                <input type="email" id="authEmail" placeholder="admin@on1x.vpn">
             </div>
             <div>
                 <span class="filter-label">Пароль:</span>
@@ -412,6 +460,17 @@
                 <button class="btn" style="padding: 2px 6px; font-size: 10px; margin-top:6px; box-shadow: 2px 2px 0px var(--shadow-color);" onclick="handleLogout()">Выйти</button>
             </div>
         </header>
+
+        <div class="stats-box">
+            <div class="stat-item">
+                <span class="filter-label" style="margin-bottom:0;">Опубликовано</span>
+                <span class="stat-value published" id="statPublished">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="filter-label" style="margin-bottom:0;">На проверке</span>
+                <span class="stat-value pending" id="statPending">0</span>
+            </div>
+        </div>
 
         <div class="filter-box">
             <div>
@@ -449,7 +508,13 @@
         const toast = document.getElementById('toast');
         const statusFilter = document.getElementById('statusFilter');
         const searchInput = document.getElementById('searchInput');
+        
+        const statPublished = document.getElementById('statPublished');
+        const statPending = document.getElementById('statPending');
+        
         let allReviews = [];
+        // Временный объект для отслеживания текущих выбранных звезд в открытых карточках до их сохранения
+        let activeStarsEditing = {};
 
         const themeInput = document.getElementById('themeInput');
         const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -518,6 +583,43 @@
             return html;
         }
 
+        // Генерация кнопок-звёзд для редактирования внутри раскрытой карточки
+        function getStarsEditButtons(reviewId, currentStars) {
+            let html = `<div class="stars-edit-row" id="stars-container-${reviewId}">`;
+            for (let i = 1; i <= 5; i++) {
+                html += `
+                <button class="star-btn" onclick="setStarsEditing('${reviewId}', ${i})">
+                    ${getStarSvg(i <= currentStars)}
+                </button>`;
+            }
+            html += `</div>`;
+            return html;
+        }
+
+        // Функция изменения звезд при клике на кнопки (без перезагрузки списка)
+        function setStarsEditing(reviewId, starsCount) {
+            activeStarsEditing[reviewId] = starsCount;
+            const container = document.getElementById(`stars-container-${reviewId}`);
+            if (container) {
+                let buttonsHtml = '';
+                for (let i = 1; i <= 5; i++) {
+                    buttonsHtml += `
+                    <button class="star-btn" onclick="setStarsEditing('${reviewId}', ${i})">
+                        ${getStarSvg(i <= starsCount)}
+                    </button>`;
+                }
+                container.innerHTML = buttonsHtml;
+            }
+        }
+
+        function updateStatsCounters() {
+            const countPublished = allReviews.filter(r => r.proverka === 1 || r.proverka === 2).length;
+            const countPending = allReviews.filter(r => r.proverka === 0).length;
+            
+            statPublished.textContent = countPublished;
+            statPending.textContent = countPending;
+        }
+
         async function fetchAllReviews() {
             try {
                 let { data: reviews, error } = await supabaseClient
@@ -526,6 +628,7 @@
                     .order('created_at', { ascending: false });
                 if (!error && reviews) {
                     allReviews = reviews;
+                    updateStatsCounters();
                     renderFiltered();
                 } else if (error && error.status === 401) {
                     handleLogout();
@@ -562,7 +665,7 @@
                 });
             }
 
-            const statusLabels = { 0: '0 — Проверка', 1: '1 — Учтен', 2: '2 — Скрыт балл' };
+            const statusLabels = { 0: 'Проверка', 1: 'Опубликован', 2: 'Опубликован (Оценка НЕ учитывается)' };
 
             if (filteredData.length === 0) {
                 grid.innerHTML = `<div style="text-align:center; padding:20px; font-weight:800; color:var(--text-sub); text-transform:uppercase; font-size:13px;">Ничего не найдено</div>`;
@@ -571,7 +674,15 @@
 
             grid.innerHTML = filteredData.map((r) => {
                 const dateObj = new Date(r.created_at);
-                const fullDate = `${String(dateObj.getDate()).padStart(2, '0')}.${String(dateObj.getMonth() + 1).padStart(2, '0')}.${dateObj.getFullYear()}`;
+                const displayDate = `${String(dateObj.getDate()).padStart(2, '0')}.${String(dateObj.getMonth() + 1).padStart(2, '0')}.${dateObj.getFullYear()}`;
+                
+                const tzOffset = dateObj.getTimezoneOffset() * 60000;
+                const localISODate = (new Date(dateObj.getTime() - tzOffset)).toISOString().slice(0, 16);
+
+                // Инициализируем временное значение звезд, если оно еще не выставлено кликом
+                if (activeStarsEditing[r.id] === undefined) {
+                    activeStarsEditing[r.id] = r.stars;
+                }
 
                 return `
                 <div class="section-box" id="card-${r.id}" onclick="toggleCard(event, '${r.id}')">
@@ -581,7 +692,7 @@
                             <div class="avatar">${r.name ? r.name[0].toUpperCase() : '?'}</div>
                             <div class="username">
                                 <span>${r.name || 'Аноним'} ${r.contact ? `<span style="color:var(--text-sub); font-size:10px; font-weight:500;">(${r.contact})</span>` : ''}</span>
-                                <span class="review-date">${fullDate}</span>
+                                <span class="review-date">${displayDate}</span>
                             </div>
                         </div>
                         <div class="stars-row">${getStarsRowHtml(r.stars)}</div>
@@ -590,20 +701,23 @@
                     <svg class="fold-arrow" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
 
                     <div class="actions-area">
-                        <span class="filter-label">Количество звёзд (1-5):</span>
-                        <input type="number" id="stars-${r.id}" min="1" max="5" value="${r.stars}" style="width:80px; font-weight:900; margin-bottom:4px;">
+                        <span class="filter-label">Дата написания отзыва:</span>
+                        <input type="datetime-local" id="date-${r.id}" value="${localISODate}" style="margin-bottom:4px;">
+
+                        <span class="filter-label">Количество звёзд (оценка):</span>
+                        ${getStarsEditButtons(r.id, activeStarsEditing[r.id])}
 
                         <span class="filter-label">Текст отзыва:</span>
                         <textarea id="msg-${r.id}" rows="3">${r.msg || ''}</textarea>
                         
-                        <span class="filter-label">Комментарий администратора:</span>
+                        <span class="filter-label">Комментарий администратора (admin):</span>
                         <textarea id="admin-${r.id}" rows="2" placeholder="Ваш ответ под отзывом...">${r.admin || ''}</textarea>
                         
-                        <span class="filter-label">Статус:</span>
+                        <span class="filter-label">Статус (proverka):</span>
                         <select id="proverka-${r.id}" style="margin-bottom:12px;">
-                            <option value="0" ${r.proverka === 0 ? 'selected' : ''}>0 — Не опубликован (Ждет проверки)</option>
-                            <option value="1" ${r.proverka === 1 ? 'selected' : ''}>1 — Опубликован (Оценка учитывается)</option>
-                            <option value="2" ${r.proverka === 2 ? 'selected' : ''}>2 — Опубликован (Оценка НЕ учитывается)</option>
+                            <option value="0" ${r.proverka === 0 ? 'selected' : ''}>Не опубликован</option>
+                            <option value="1" ${r.proverka === 1 ? 'selected' : ''}>Опубликован</option>
+                            <option value="2" ${r.proverka === 2 ? 'selected' : ''}>Опубликован (Оценка НЕ учитывается)</option>
                         </select>
 
                         <div class="btn-group">
@@ -616,20 +730,32 @@
         }
 
         async function updateReview(id) {
-            const stars = parseInt(document.getElementById(`stars-${id}`).value) || 5;
+            // Берем количество звезд из сохраненного локального состояния кнопок
+            const stars = activeStarsEditing[id] || 5;
             const msg = document.getElementById(`msg-${id}`).value.trim();
             const admin = document.getElementById(`admin-${id}`).value.trim();
             const proverka = parseInt(document.getElementById(`proverka-${id}`).value);
+            const inputDate = document.getElementById(`date-${id}`).value;
 
             if (!msg) { showNotification("Поле отзыва не должно быть пустым", "error"); return; }
+            if (!inputDate) { showNotification("Выберите корректную дату", "error"); return; }
+
+            const isoDate = new Date(inputDate).toISOString();
 
             const { error } = await supabaseClient
                 .from('reviews')
-                .update({ stars: stars > 5 ? 5 : (stars < 1 ? 1 : stars), msg, admin: admin || null, proverka })
+                .update({ 
+                    stars: stars > 5 ? 5 : (stars < 1 ? 1 : stars), 
+                    msg, 
+                    admin: admin || null, 
+                    proverka,
+                    created_at: isoDate
+                })
                 .eq('id', id);
 
             if (!error) {
                 showNotification("Сохранено успешно!", "success");
+                delete activeStarsEditing[id]; // Очищаем временное состояние для этой карточки
                 fetchAllReviews(); 
             } else {
                 showNotification("Ошибка RLS или сервера Supabase", "error");
@@ -646,6 +772,7 @@
 
             if (!error) {
                 showNotification("Запись удалена!", "success");
+                delete activeStarsEditing[id];
                 fetchAllReviews();
             } else {
                 showNotification("Ошибка удаления", "error");
