@@ -462,6 +462,11 @@
             color: #ffffff;
         }
 
+        .source-badge.vk {
+            background: #0077ff;
+            color: #ffffff;
+        }
+
         .source-badge.website {
             background: var(--btn-primary-bg);
             color: var(--btn-primary-text);
@@ -746,9 +751,12 @@
                 <input type="datetime-local" id="date-${r.id}" value="${localISODate}" style="margin-bottom:4px;">
 
                 <span class="filter-label">Источник публикации:</span>
-                <div class="tg-id-field" style="margin-bottom:0;">
-                    <span class="tg-id-value">${r.source === 'telegram' ? '📱 Telegram' : r.source === 'website' ? '🌐 Сайт' : '— не указан'}</span>
-                </div>
+                <select id="source-${r.id}" style="margin-bottom:4px;">
+                    <option value="" ${!r.source ? 'selected' : ''}>— не указан</option>
+                    <option value="website" ${r.source === 'website' ? 'selected' : ''}>🌐 Сайт</option>
+                    <option value="telegram" ${r.source === 'telegram' ? 'selected' : ''}>📱 Telegram</option>
+                    <option value="vk" ${r.source === 'vk' ? 'selected' : ''}>💙 ВКонтакте</option>
+                </select>
 
                 ${r.contact ? `
                 <span class="filter-label" style="margin-top:6px;">Telegram ID пользователя:</span>
@@ -825,7 +833,7 @@
                     <div class="card-header-clickable">
                         <div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap;">
                             <span class="status-badge status-${r.proverka}">${statusLabels[r.proverka] || r.proverka}</span>
-                            ${r.source ? `<span class="source-badge ${r.source === 'telegram' ? 'telegram' : 'website'}">${r.source === 'telegram' ? 'Telegram' : 'Сайт'}</span>` : ''}
+                            ${r.source ? `<span class="source-badge ${r.source === 'telegram' ? 'telegram' : r.source === 'vk' ? 'vk' : 'website'}">${r.source === 'telegram' ? 'Telegram' : r.source === 'vk' ? 'ВКонтакте' : 'Сайт'}</span>` : ''}
                         </div>
                         <div class="user-meta">
                             <div class="avatar">${r.name ? r.name[0].toUpperCase() : '?'}</div>
@@ -850,6 +858,7 @@
             const admin = document.getElementById(`admin-${id}`).value.trim();
             const proverka = parseInt(document.getElementById(`proverka-${id}`).value);
             const inputDate = document.getElementById(`date-${id}`).value;
+            const source = document.getElementById(`source-${id}`).value;
 
             if (!msg) { showNotification("Поле отзыва не должно быть пустым", "error"); return; }
             if (!inputDate) { showNotification("Выберите корректную дату", "error"); return; }
@@ -863,7 +872,8 @@
                     msg, 
                     admin: admin || null, 
                     proverka,
-                    created_at: isoDate
+                    created_at: isoDate,
+                    source: source || null
                 })
                 .eq('id', id);
 
