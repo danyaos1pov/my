@@ -1,14 +1,1105 @@
-<!DOCTYPE html>
-<html lang="ru">
+<!doctype html>
+<html lang="ru" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ON1X VPN</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ON1X VPN — свободный интернет</title>
+<meta name="description" content="ON1X VPN — доступ к интернету без ограничений. Подключение за минуту, до 15 устройств на одну подписку, поддержка в Telegram.">
+<meta name="theme-color" content="#080B12">
+<link rel="icon" href="data:image/png;base64,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">
 
-    <script>
-        window.location.replace("https://bot.on1xvpn.com/lk/");
-    </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#080B12;
+  --bg-2:#0D1420;
+  --card:#111A28;
+  --line:rgba(90,200,230,.13);
+  --line-2:rgba(90,200,230,.24);
+  --text:#EAF6FB;
+  --text-2:#93B3C6;
+  --text-3:#61788A;
+  --accent:#22D3EE;
+  --accent-2:#0FB6D6;
+  --ice:#38BDF8;
+  --ok:#2FD3A6;
+  --on-accent:#041418;
+  --grid-line:rgba(34,211,238,.10);
+  --shadow:0 24px 60px -32px rgba(0,0,0,.85);
+  --logo:url("data:image/png;base64,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");
+
+  --wrap:1160px;
+  --gutter:24px;
+  --head-h:68px;
+  --sec:56px;
+  --gap:20px;
+  --pad:28px;
+  --r-sm:12px;
+  --r-md:16px;
+  --r-lg:20px;
+  --r-xl:28px;
+  --ease:cubic-bezier(.22,.9,.24,1);
+}
+html[data-theme="light"]{
+  --bg:#EDF2F6; --bg-2:#FFFFFF; --card:#FFFFFF;
+  --line:rgba(12,70,90,.12); --line-2:rgba(12,70,90,.20);
+  --text:#0B1720; --text-2:#4A6474; --text-3:#7D96A6;
+  --accent:#0891B2; --accent-2:#0E7490; --ice:#0E86C4; --ok:#0E9B76;
+  --on-accent:#FFFFFF; --grid-line:rgba(8,145,178,.10);
+  --shadow:0 20px 46px -30px rgba(12,60,80,.45);
+  --logo:url("data:image/png;base64,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");
+}
+@media (max-width:1099px){
+  :root{--head-h:60px;--sec:44px;--gap:14px;--pad:24px}
+}
+@media (max-width:520px){
+  :root{--gutter:16px;--pad:20px}
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none !important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);color:var(--text);
+  font:400 16px/1.6 'Onest',system-ui,-apple-system,'Segoe UI',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:clip;
+  min-height:100vh;
+}
+[id]{scroll-margin-top:calc(var(--head-h) + 12px)}
+img,svg{display:block;max-width:100%}
+button{font:inherit;color:inherit}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+
+.bg{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;background:var(--bg)}
+.bg::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(var(--grid-line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);
+  background-size:48px 48px;
+  -webkit-mask:radial-gradient(125% 92% at 50% 20%,#000 0%,rgba(0,0,0,.5) 46%,transparent 76%);
+  mask:radial-gradient(125% 92% at 50% 20%,#000 0%,rgba(0,0,0,.5) 46%,transparent 76%);
+}
+.bg i{position:absolute;border-radius:50%;filter:blur(80px);display:block}
+.bg i:nth-child(1){width:56vw;height:56vw;left:22vw;top:-26vw;background:radial-gradient(circle,var(--accent),transparent 66%);opacity:.26}
+.bg i:nth-child(2){width:44vw;height:44vw;right:-12vw;top:42vh;background:radial-gradient(circle,var(--ice),transparent 64%);opacity:.18}
+html[data-theme="light"] .bg i:nth-child(1){opacity:.14}
+html[data-theme="light"] .bg i:nth-child(2){opacity:.10}
+
+.wrap{width:100%;max-width:calc(var(--wrap) + var(--gutter)*2);margin-inline:auto;padding-inline:var(--gutter)}
+
+.top{
+  position:sticky;top:0;z-index:40;
+  backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%);
+  background:color-mix(in srgb,var(--bg) 76%,transparent);
+  border-bottom:1px solid transparent;transition:border-color .25s,background .25s;
+}
+.top.is-stuck{border-bottom-color:var(--line);background:color-mix(in srgb,var(--bg) 93%,transparent)}
+.top__in{display:flex;align-items:center;gap:12px;height:var(--head-h)}
+.brand{
+  display:inline-flex;align-items:center;gap:10px;flex:0 0 auto;
+  font:800 18px/1 'Onest',sans-serif;letter-spacing:-.02em;color:var(--text);text-decoration:none;
+}
+.brand__mark{
+  width:28px;height:28px;flex:0 0 auto;display:block;
+  background:var(--logo) center/contain no-repeat;
+}
+.nav-desk{margin-left:auto;display:flex;align-items:center;gap:8px}
+.nav-desk a{
+  display:inline-flex;align-items:center;height:36px;padding:0 12px;border-radius:10px;
+  color:var(--text-2);text-decoration:none;font:600 15px/1 'Onest',sans-serif;white-space:nowrap;
+  transition:color .2s,background .2s;
+}
+.nav-desk a:hover{color:var(--text);background:color-mix(in srgb,var(--text) 6%,transparent)}
+.nav-desk a.is-active{color:var(--accent)}
+.nav-desk .tsw{margin-left:8px}
+.nav-desk .btn{margin-left:4px}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  min-height:50px;padding:0 24px;border-radius:var(--r-md);
+  border:1px solid var(--line-2);background:var(--card);color:var(--text);
+  font:700 15px/1 'Onest',sans-serif;text-decoration:none;cursor:pointer;text-align:center;
+  transition:transform .16s var(--ease),background .2s,border-color .2s,box-shadow .2s;
+}
+.btn:hover{transform:translateY(-2px);border-color:var(--accent)}
+.btn:active{transform:translateY(0) scale(.985)}
+.btn svg{width:18px;height:18px;flex:0 0 auto}
+.btn--primary{background:var(--accent);border-color:transparent;color:var(--on-accent)}
+.btn--primary:hover{background:var(--accent-2);box-shadow:0 10px 26px -12px var(--accent)}
+.btn--sm{min-height:40px;padding:0 16px;font-size:14px;border-radius:var(--r-sm)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
+
+.tsw{
+  width:40px;height:40px;flex:0 0 auto;border-radius:var(--r-sm);
+  display:grid;place-items:center;
+  background:var(--card);border:1px solid var(--line);color:var(--text-2);cursor:pointer;
+  transition:color .2s,border-color .2s;
+}
+.tsw:hover{color:var(--text);border-color:var(--line-2)}
+.tsw svg{width:18px;height:18px}
+.tsw--mob{display:none;margin-left:auto}
+
+.burger{
+  display:none;width:40px;height:40px;flex:0 0 auto;border-radius:var(--r-sm);
+  background:var(--card);border:1px solid var(--line);cursor:pointer;
+  flex-direction:column;align-items:center;justify-content:center;gap:4px;
+}
+.burger i{display:block;width:16px;height:2px;border-radius:2px;background:var(--text);transition:transform .25s var(--ease),opacity .2s}
+.burger[aria-expanded="true"] i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] i:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+.nav-mob{
+  border-top:1px solid var(--line);background:var(--bg-2);
+  max-height:calc(100dvh - var(--head-h));overflow-y:auto;overscroll-behavior:contain;
+}
+.nav-mob__in{display:flex;flex-direction:column;padding-block:8px 20px}
+.nav-mob a{
+  display:flex;align-items:center;min-height:52px;
+  color:var(--text);text-decoration:none;
+  font:600 16px/1.3 'Onest',sans-serif;border-bottom:1px solid var(--line);
+}
+.nav-mob a:last-of-type{border-bottom:0}
+.nav-mob .btn{width:100%;margin-top:16px}
+
+@media (max-width:1099px){
+  .nav-desk{display:none}
+  .tsw--mob{display:grid}
+  .burger{display:flex}
+}
+@media (min-width:1100px){
+  .nav-mob{display:none !important}
+}
+
+.sec{padding-block:var(--sec)}
+.sec__head{max-width:58ch;margin-bottom:36px}
+.sec__head h2{font:800 clamp(26px,3.6vw,38px)/1.14 'Onest',sans-serif;letter-spacing:-.03em}
+.sec__head p{color:var(--text-2);font-size:16px;margin-top:12px}
+@media (max-width:1099px){ .sec__head{margin-bottom:26px} }
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  height:30px;padding:0 14px;border-radius:99px;
+  background:color-mix(in srgb,var(--accent) 13%,var(--card));
+  border:1px solid var(--line-2);
+  font:700 12px/1 'Onest',sans-serif;color:var(--accent);letter-spacing:.02em;
+}
+.eyebrow b{width:6px;height:6px;border-radius:50%;background:var(--ok);flex:0 0 auto}
+
+.hero{padding-block:64px var(--sec)}
+.hero__grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px;align-items:center}
+.hero__text{min-width:0}
+.hero h1{
+  font:800 clamp(32px,5.2vw,54px)/1.06 'Onest',sans-serif;
+  letter-spacing:-.035em;margin:22px 0 18px;
+}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero__lead{font-size:17px;line-height:1.62;color:var(--text-2);max-width:50ch}
+.hero__btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero__note{display:flex;align-items:flex-start;gap:8px;margin-top:20px;font-size:14px;line-height:1.5;color:var(--text-3)}
+.hero__note svg{width:16px;height:16px;margin-top:3px;color:var(--ok);flex:0 0 auto}
+
+.stage{
+  position:relative;width:100%;aspect-ratio:1/.88;min-height:280px;
+  border-radius:var(--r-xl);overflow:hidden;
+  background:linear-gradient(158deg,var(--card),var(--bg));
+  border:1px solid var(--line);box-shadow:var(--shadow);
+  display:grid;place-items:center;
+}
+.stage__ring{
+  position:absolute;top:50%;left:50%;border:1px solid var(--line-2);border-radius:24px;
+  translate:-50% -50%;animation:ringIn 5.5s var(--ease) infinite;
+}
+.stage__ring:nth-of-type(1){width:76%;height:82%;animation-delay:0s}
+.stage__ring:nth-of-type(2){width:60%;height:65%;animation-delay:.55s}
+.stage__ring:nth-of-type(3){width:44%;height:48%;animation-delay:1.1s}
+.stage__ring:nth-of-type(4){width:28%;height:31%;animation-delay:1.65s}
+@keyframes ringIn{
+  0%{opacity:0;transform:scale(1.14)}
+  22%{opacity:1}
+  70%{opacity:.45}
+  100%{opacity:0;transform:scale(.72)}
+}
+.stage__core{
+  position:relative;width:108px;height:108px;border-radius:28px;
+  display:grid;place-items:center;
+  background:color-mix(in srgb,var(--accent) 14%,var(--card));
+  border:1px solid var(--accent);
+  box-shadow:0 0 44px -14px var(--accent);
+}
+.stage__core span{width:54px;height:54px;display:block;background:var(--logo) center/contain no-repeat}
+.stage__tag{
+  position:absolute;display:inline-flex;align-items:center;height:32px;padding:0 13px;
+  border-radius:10px;background:var(--card);border:1px solid var(--line-2);
+  font:700 12px/1 'Onest',sans-serif;color:var(--text-2);white-space:nowrap;
+}
+.stage__tag--in{left:22px;top:22px}
+.stage__tag--out{right:22px;bottom:22px}
+.stage__tag b{color:var(--accent);margin-left:4px}
+@media (prefers-reduced-motion:reduce){ .stage__ring{animation:none;opacity:.5} }
+
+.facts{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;margin-top:64px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;
+}
+.fact{background:var(--bg-2);padding:24px var(--pad);min-width:0}
+.fact b{display:block;font:800 30px/1.1 'Onest',sans-serif;letter-spacing:-.03em;color:var(--text);font-variant-numeric:tabular-nums}
+.fact span{display:block;font-size:13px;line-height:1.45;color:var(--text-3);margin-top:8px}
+
+@media (max-width:1099px){
+  .hero{padding-block:40px var(--sec)}
+  .hero__grid{grid-template-columns:1fr;gap:36px}
+  .hero__lead{max-width:none}
+  .stage{max-width:460px;margin-inline:auto;aspect-ratio:1/.8}
+  .facts{margin-top:40px}
+}
+@media (max-width:900px){
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fact{padding:20px}
+  .fact b{font-size:26px}
+}
+@media (max-width:560px){
+  .hero__btns{display:grid;grid-template-columns:1fr;gap:10px}
+  .stage__tag{height:28px;padding:0 10px;font-size:11px}
+  .stage__tag--in{left:14px;top:14px}
+  .stage__tag--out{right:14px;bottom:14px}
+  .stage__core{width:92px;height:92px;border-radius:24px}
+  .stage__core span{width:46px;height:46px}
+}
+
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap)}
+@media (max-width:980px){
+  .grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid-3--flow > :last-child{grid-column:1/-1}
+}
+@media (max-width:640px){ .grid-3{grid-template-columns:1fr} }
+
+.tile{
+  display:flex;flex-direction:column;min-width:0;
+  padding:var(--pad);border-radius:var(--r-lg);
+  background:var(--card);border:1px solid var(--line);
+  transition:transform .2s var(--ease),border-color .2s;
+}
+.tile h3{font:800 18px/1.25 'Onest',sans-serif;letter-spacing:-.02em;margin-bottom:8px}
+.tile p{color:var(--text-2);font-size:15px;line-height:1.55}
+.card:hover{transform:translateY(-3px);border-color:var(--line-2)}
+
+.step__n{
+  display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;
+  font:800 12px/1 'Onest',sans-serif;color:var(--accent);letter-spacing:.1em;
+}
+.step__n i{width:20px;height:1px;background:var(--accent);display:block}
+
+.card__ic{
+  width:46px;height:46px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px;
+  background:color-mix(in srgb,var(--accent) 14%,var(--card));color:var(--accent);
+}
+.card__ic svg{width:22px;height:22px}
+
+.devs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--gap)}
+@media (max-width:1099px){
+  .devs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .devs > :last-child{grid-column:1/-1}
+}
+.dev{
+  display:flex;align-items:center;gap:12px;min-width:0;
+  padding:18px;border-radius:var(--r-md);
+  background:var(--card);border:1px solid var(--line);
+}
+.dev svg{width:20px;height:20px;color:var(--accent);flex:0 0 auto}
+.dev div{min-width:0}
+.dev b{display:block;font:700 15px/1.3 'Onest',sans-serif;overflow-wrap:anywhere}
+.dev small{display:block;font:500 12px/1.3 'Onest',sans-serif;color:var(--text-3);margin-top:3px}
+
+.plan{
+  display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:44px;align-items:center;
+  padding:44px;border-radius:var(--r-xl);
+  background:var(--bg-2);border:1px solid var(--line-2);
+}
+.plan h2{font:800 clamp(24px,3.2vw,34px)/1.16 'Onest',sans-serif;letter-spacing:-.03em;margin:18px 0 14px}
+.plan p{color:var(--text-2);font-size:16px;max-width:48ch}
+.plan__facts{display:flex;gap:40px;margin-top:26px}
+.plan__facts b{display:block;font:800 34px/1.1 'Onest',sans-serif;letter-spacing:-.03em;color:var(--accent);font-variant-numeric:tabular-nums}
+.plan__facts span{display:block;font-size:13px;color:var(--text-3);margin-top:6px}
+.plan__slots{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:12px}
+.slot{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  padding:22px 16px;border-radius:var(--r-md);
+  background:var(--card);border:1px solid var(--line);
+}
+.slot.is-on{border-color:color-mix(in srgb,var(--accent) 42%,var(--line))}
+.slot svg{width:24px;height:24px;color:var(--text-3);margin-bottom:12px}
+.slot.is-on svg{color:var(--accent)}
+.slot__plus{
+  display:grid;place-items:center;width:24px;height:24px;margin-bottom:12px;
+  font:800 24px/1 'Onest',sans-serif;color:var(--text-3);
+}
+.slot b{display:block;font:700 15px/1.3 'Onest',sans-serif}
+.slot small{display:block;font-size:12px;color:var(--text-3);margin-top:4px}
+@media (max-width:1099px){
+  .plan{grid-template-columns:1fr;gap:30px;padding:var(--pad)}
+  .plan p{max-width:none}
+}
+@media (max-width:400px){
+  .plan__facts{gap:28px}
+}
+
+.faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap);align-items:start}
+@media (max-width:900px){ .faq{grid-template-columns:1fr} }
+details{border-radius:var(--r-md);background:var(--card);border:1px solid var(--line);overflow:hidden}
+summary{
+  display:flex;align-items:center;gap:16px;
+  min-height:64px;padding:16px 20px;cursor:pointer;list-style:none;
+  font:700 15.5px/1.4 'Onest',sans-serif;
+}
+summary::-webkit-details-marker{display:none}
+summary::marker{content:""}
+summary::after{
+  content:"";margin-left:auto;width:9px;height:9px;flex:0 0 auto;
+  border-right:2px solid var(--text-3);border-bottom:2px solid var(--text-3);
+  transform:rotate(45deg) translate(-2px,-2px);transition:transform .25s var(--ease);
+}
+details[open] summary::after{transform:rotate(-135deg)}
+details > p{padding:0 20px 20px;color:var(--text-2);font-size:15px;line-height:1.6}
+
+.final{
+  padding:56px var(--pad);border-radius:var(--r-xl);text-align:center;
+  background:var(--bg-2);border:1px solid var(--line-2);
+}
+.final h2{font:800 clamp(24px,3.4vw,36px)/1.16 'Onest',sans-serif;letter-spacing:-.03em}
+.final p{color:var(--text-2);max-width:46ch;margin:14px auto 30px}
+.final__btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+@media (max-width:560px){
+  .final{padding:36px var(--pad)}
+  .final__btns{display:grid;grid-template-columns:1fr}
+}
+
+footer{border-top:1px solid var(--line);padding-block:32px 40px}
+.foot{display:flex;flex-wrap:wrap;align-items:center;gap:20px}
+.foot__brand{display:flex;align-items:center;gap:10px}
+.foot__brand .brand__mark{width:22px;height:22px}
+.foot__brand small{color:var(--text-3);font-size:13px}
+.foot__links{margin-left:auto;display:flex;flex-wrap:wrap;gap:8px 20px}
+.foot__links a{color:var(--text-2);text-decoration:none;font:600 14px/1.4 'Onest',sans-serif;transition:color .2s}
+.foot__links a:hover{color:var(--accent)}
+@media (max-width:640px){
+  .foot{flex-direction:column;align-items:flex-start;gap:22px}
+  .foot__links{margin-left:0;gap:12px 22px}
+}
+
+.rise{opacity:0;transform:translateY(14px)}
+.rise.in{opacity:1;transform:none;transition:opacity .5s var(--ease),transform .5s var(--ease)}
+@media (prefers-reduced-motion:reduce){ .rise{opacity:1;transform:none} html{scroll-behavior:auto} }
+
+.legal{padding-block:calc(var(--sec) - 8px) calc(var(--sec) * 1.4)}
+.legal__back{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--text-2);text-decoration:none;font:600 14px/1 'Onest',sans-serif;transition:color .2s;
+}
+.legal__back:hover{color:var(--accent)}
+.legal__back svg{width:16px;height:16px}
+.legal h1{font:800 clamp(28px,4.6vw,42px)/1.1 'Onest',sans-serif;letter-spacing:-.03em;margin:20px 0 12px}
+.legal__lead{color:var(--text-2);font-size:16px;max-width:56ch}
+.legal__tabs{
+  display:grid;grid-auto-flow:column;gap:6px;margin:32px 0 24px;
+  padding:6px;border-radius:var(--r-md);background:var(--bg-2);border:1px solid var(--line);
+  width:fit-content;max-width:100%;
+}
+.legal__tab{
+  min-height:42px;padding:0 20px;border-radius:11px;border:1px solid transparent;background:transparent;
+  color:var(--text-2);font:700 14px/1.2 'Onest',sans-serif;cursor:pointer;white-space:nowrap;
+  transition:color .2s,background .2s,border-color .2s;
+}
+.legal__tab:hover{color:var(--text)}
+.legal__tab[aria-selected="true"]{background:var(--card);border-color:var(--line-2);color:var(--text)}
+@media (max-width:640px){
+  .legal__tabs{width:100%;grid-auto-flow:row;grid-template-columns:1fr 1fr}
+  .legal__tab{padding:0 8px;font-size:13px;white-space:normal}
+}
+
+.doc{
+  max-width:900px;padding:38px 40px;border-radius:var(--r-xl);
+  background:var(--card);border:1px solid var(--line);
+}
+@media (max-width:640px){ .doc{padding:24px 20px;border-radius:var(--r-lg)} }
+.doc h2{font:800 clamp(21px,3vw,28px)/1.2 'Onest',sans-serif;letter-spacing:-.025em}
+.doc__date{font-size:13px;color:var(--text-3);margin:8px 0 22px}
+.doc h3{
+  font:800 17px/1.35 'Onest',sans-serif;letter-spacing:-.02em;
+  margin-top:28px;padding-top:26px;border-top:1px solid var(--line);
+}
+.doc h3 + p,.doc h3 + ul{margin-top:12px}
+.doc p{color:var(--text-2);font-size:15.5px;line-height:1.65}
+.doc p + p{margin-top:12px}
+.doc strong{color:var(--text);font-weight:700}
+.doc ul{list-style:none;margin-top:12px}
+.doc li{position:relative;padding-left:22px;color:var(--text-2);font-size:15.5px;line-height:1.6}
+.doc li + li{margin-top:10px}
+.doc li::before{
+  content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;
+  border-radius:2px;background:var(--accent);opacity:.75;
+}
+.doc a{color:var(--accent);text-decoration:none;font-weight:600}
+.doc a:hover{text-decoration:underline}
+.doc__note{
+  margin-top:30px;padding:16px 20px;border-radius:var(--r-md);
+  background:var(--bg);border:1px solid var(--line);
+  color:var(--text-3);font-size:14px;
+}
+
+.pick{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:20px}
+.pick__scrim{position:absolute;inset:0;background:rgba(2,6,12,.66);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+html[data-theme="light"] .pick__scrim{background:rgba(12,40,60,.38)}
+.pick__box{
+  position:relative;width:100%;max-width:430px;padding:30px 26px 26px;
+  border-radius:var(--r-xl);background:var(--bg-2);border:1px solid var(--line-2);
+  box-shadow:0 34px 80px -30px rgba(0,0,0,.7);
+  animation:pickIn .26s var(--ease) both;
+}
+@keyframes pickIn{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+.pick__box h3{font:800 21px/1.25 'Onest',sans-serif;letter-spacing:-.02em;padding-right:40px}
+.pick__box > p{color:var(--text-2);font-size:14.5px;margin:8px 0 22px}
+.pick__x{
+  position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:11px;
+  display:grid;place-items:center;
+  background:var(--card);border:1px solid var(--line);color:var(--text-2);
+  font-size:22px;line-height:1;cursor:pointer;transition:color .2s,border-color .2s;
+}
+.pick__x:hover{color:var(--text);border-color:var(--line-2)}
+.pick__opts{display:grid;gap:11px}
+.pick__opt{
+  display:flex;align-items:center;gap:14px;padding:16px;border-radius:var(--r-md);
+  background:var(--card);border:1px solid var(--line);text-decoration:none;color:var(--text);
+  transition:transform .16s var(--ease),border-color .2s;
+}
+.pick__opt:hover{transform:translateY(-2px);border-color:var(--accent)}
+.pick__ic{
+  width:46px;height:46px;flex:0 0 auto;border-radius:14px;display:grid;place-items:center;
+  background:color-mix(in srgb,var(--accent) 14%,var(--card));color:var(--accent);
+}
+.pick__ic svg{width:22px;height:22px}
+.pick__tx{flex:1;min-width:0}
+.pick__tx b{display:block;font:700 16px/1.3 'Onest',sans-serif}
+.pick__tx small{display:block;font-size:13px;color:var(--text-3);margin-top:2px}
+.pick__go{color:var(--text-3);font-size:24px;line-height:1;flex:0 0 auto}
+body.locked{overflow:hidden}
+</style>
 </head>
 <body>
+
+<div class="bg" aria-hidden="true"><i></i><i></i></div>
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+    <path d="M12 3l7.2 3v5.4c0 4.4-3 8.3-7.2 9.6-4.2-1.3-7.2-5.2-7.2-9.6V6L12 3Z" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+    <rect x="4.8" y="10.4" width="14.4" height="10" rx="2.6"/>
+    <path d="M8.4 10.4V7.8a3.6 3.6 0 0 1 7.2 0v2.6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+    <path d="M13.2 2.8 5.6 13.4h5.4l-.8 7.8 7.6-10.6h-5.4l.8-7.8Z" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+    <path d="M21 3 10.5 13.5M21 3l-6.8 18-3.7-7.5L3 9.8 21 3Z" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+    <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.8 2.6 15.2 0 18-2.6-2.8-2.6-15.2 0-18Z"/>
+  </symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+    <rect x="6.6" y="2.8" width="10.8" height="18.4" rx="2.4"/><path d="M10.6 18.4h2.8" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-tv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+    <rect x="3" y="5" width="18" height="12" rx="2.2"/><path d="M8.5 21h7M12 17v4" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-laptop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+    <rect x="4" y="5" width="16" height="10.5" rx="2"/><path d="M2.5 19h19" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+    <circle cx="9.4" cy="8.6" r="3.3"/><path d="M3.6 19.4a5.8 5.8 0 0 1 11.6 0"/><path d="M16.4 6.2a3.2 3.2 0 0 1 0 6M17.6 19.4a5.6 5.6 0 0 0-2.2-4.4"/>
+  </symbol>
+  <symbol id="i-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+    <path d="M4 4l16 16" stroke-linecap="round"/>
+    <path d="M9.6 5.4A9.6 9.6 0 0 1 12 5c5 0 9 4.4 9 7 0 .9-.5 2-1.4 3.1M6.3 7.3C4.1 8.8 3 10.9 3 12c0 2.6 4 7 9 7 1.3 0 2.5-.3 3.6-.8"/>
+  </symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="m5 12.5 4.5 4.5L19 7" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-support" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+    <path d="M4.5 14v-2a7.5 7.5 0 0 1 15 0v2"/>
+    <rect x="2.8" y="13.4" width="4" height="6" rx="1.8"/><rect x="17.2" y="13.4" width="4" height="6" rx="1.8"/>
+  </symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+    <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+    <circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+    <path d="M15 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+<header class="top" id="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#home"><span class="brand__mark" role="img" aria-label="ON1X VPN"></span>ON1X VPN</a>
+
+    <nav class="nav-desk" aria-label="Основное меню">
+      <a href="#how">Как подключить</a>
+      <a href="#features">Возможности</a>
+      <a href="#devices">Устройства</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#legal">Документы</a>
+      <button class="tsw" id="themeBtn" type="button" aria-label="Сменить тему"><svg aria-hidden="true"><use href="#i-sun"/></svg></button>
+      <button class="btn btn--primary btn--sm" type="button" data-connect>
+        <svg aria-hidden="true"><use href="#i-send"/></svg>Подключиться
+      </button>
+    </nav>
+
+    <button class="tsw tsw--mob" id="themeBtnMob" type="button" aria-label="Сменить тему"><svg aria-hidden="true"><use href="#i-sun"/></svg></button>
+    <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="mobileNav">
+      <i></i><i></i><i></i>
+    </button>
+  </div>
+
+  <div class="nav-mob" id="mobileNav" hidden>
+    <div class="wrap nav-mob__in">
+      <a href="#how">Как подключить</a>
+      <a href="#features">Возможности</a>
+      <a href="#devices">Устройства</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#legal">Документы</a>
+      <button class="btn btn--primary" type="button" data-connect>
+        <svg aria-hidden="true"><use href="#i-send"/></svg>Подключиться
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="viewHome">
+  <section class="hero" id="home">
+    <div class="wrap">
+      <div class="hero__grid">
+        <div class="hero__text">
+          <span class="eyebrow"><b></b>Серверы работают прямо сейчас</span>
+          <h1>Интернет <em>без границ</em> — за одну минуту</h1>
+          <p class="hero__lead">
+            ON1X VPN открывает сайты и сервисы, которые не работают у вашего провайдера.
+            Без настроек и конфигов: подписка добавляется в приложение одной кнопкой
+            и работает сразу на всех ваших устройствах.
+          </p>
+          <div class="hero__btns">
+            <a class="btn btn--primary" href="https://bot.on1xvpn.com/lk" target="_blank" rel="noopener">
+              <svg aria-hidden="true"><use href="#i-globe"/></svg>Личный кабинет
+            </a>
+            <a class="btn" href="https://t.me/ON1Xvpn_bot" target="_blank" rel="noopener">
+              <svg aria-hidden="true"><use href="#i-send"/></svg>Открыть в Telegram
+            </a>
+          </div>
+          <p class="hero__note"><svg aria-hidden="true"><use href="#i-check"/></svg>Пробный доступ — бесплатно, карта не нужна</p>
+        </div>
+
+        <div class="stage" aria-hidden="true">
+          <span class="stage__ring"></span>
+          <span class="stage__ring"></span>
+          <span class="stage__ring"></span>
+          <span class="stage__ring"></span>
+          <div class="stage__core"><span></span></div>
+          <span class="stage__tag stage__tag--in">Ваше устройство</span>
+          <span class="stage__tag stage__tag--out">Открытый <b>интернет</b></span>
+        </div>
+      </div>
+
+      <div class="facts rise">
+        <div class="fact"><b>1 мин</b><span>до свободного интернета</span></div>
+        <div class="fact"><b>До 15</b><span>устройств на одну подписку</span></div>
+        <div class="fact"><b>24/7</b><span>поддержка в Telegram</span></div>
+        <div class="fact"><b>0</b><span>логов вашей активности</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="how">
+    <div class="wrap">
+      <div class="sec__head rise">
+        <h2>Три шага — и всё работает</h2>
+        <p>Не нужно разбираться в протоколах и вручную вводить длинные ссылки. Приложение делает это само.</p>
+      </div>
+      <div class="grid-3 grid-3--flow">
+        <article class="tile rise">
+          <div class="step__n"><i></i>ШАГ 1</div>
+          <h3>Заберите подписку</h3>
+          <p>Откройте бота в Telegram или личный кабинет на сайте и выберите срок. Начать можно с бесплатного пробного доступа.</p>
+        </article>
+        <article class="tile rise">
+          <div class="step__n"><i></i>ШАГ 2</div>
+          <h3>Поставьте приложение</h3>
+          <p>Личный кабинет сам подскажет нужное приложение для вашего устройства и даст прямую ссылку на установку.</p>
+        </article>
+        <article class="tile rise">
+          <div class="step__n"><i></i>ШАГ 3</div>
+          <h3>Нажмите «Подключить»</h3>
+          <p>Подписка добавится в приложение одной кнопкой. На телевизоре — по коду с экрана, вводить ссылку пультом не придётся.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="features">
+    <div class="wrap">
+      <div class="sec__head rise">
+        <h2>Что вы получаете</h2>
+        <p>Сервис, который просто работает: без ручных настроек, ограничений по трафику и лишних вопросов.</p>
+      </div>
+      <div class="grid-3">
+        <article class="tile card rise">
+          <div class="card__ic"><svg aria-hidden="true"><use href="#i-zap"/></svg></div>
+          <h3>Скорость без потолка</h3>
+          <p>Трафик не ограничен и не режется. Видео в высоком качестве, звонки и загрузки идут как обычно.</p>
+        </article>
+        <article class="tile card rise">
+          <div class="card__ic"><svg aria-hidden="true"><use href="#i-users"/></svg></div>
+          <h3>Одна подписка на всю семью</h3>
+          <p>Базово доступно три устройства, при необходимости лимит расширяется до пятнадцати — телефоны, компьютеры, телевизор.</p>
+        </article>
+        <article class="tile card rise">
+          <div class="card__ic"><svg aria-hidden="true"><use href="#i-eye-off"/></svg></div>
+          <h3>Мы не храним логи</h3>
+          <p>История посещений не записывается. Соединение шифруется, провайдер видит только защищённый канал.</p>
+        </article>
+        <article class="tile card rise">
+          <div class="card__ic"><svg aria-hidden="true"><use href="#i-shield"/></svg></div>
+          <h3>Работает там, где блокируют</h3>
+          <p>Современные протоколы маскируют трафик под обычный HTTPS, поэтому подключение остаётся стабильным.</p>
+        </article>
+        <article class="tile card rise">
+          <div class="card__ic"><svg aria-hidden="true"><use href="#i-support"/></svg></div>
+          <h3>Живая поддержка</h3>
+          <p>Пишите в Telegram — отвечает человек, а не робот. Поможем подключить и разобраться с любым устройством.</p>
+        </article>
+        <article class="tile card rise">
+          <div class="card__ic"><svg aria-hidden="true"><use href="#i-lock"/></svg></div>
+          <h3>Честные условия</h3>
+          <p>Автосписаний нет: подписка продлевается только по вашему решению. Остаток средств можно вывести.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="devices">
+    <div class="wrap">
+      <div class="sec__head rise">
+        <h2>Подключается к любому экрану</h2>
+        <p>Одна подписка — все ваши устройства одновременно.</p>
+      </div>
+      <div class="devs rise">
+        <div class="dev"><svg aria-hidden="true"><use href="#i-phone"/></svg><div><b>iPhone и iPad</b><small>App Store</small></div></div>
+        <div class="dev"><svg aria-hidden="true"><use href="#i-phone"/></svg><div><b>Android</b><small>Google Play</small></div></div>
+        <div class="dev"><svg aria-hidden="true"><use href="#i-laptop"/></svg><div><b>Windows</b><small>Установщик</small></div></div>
+        <div class="dev"><svg aria-hidden="true"><use href="#i-laptop"/></svg><div><b>macOS</b><small>App Store</small></div></div>
+        <div class="dev"><svg aria-hidden="true"><use href="#i-tv"/></svg><div><b>Android TV</b><small>По коду с экрана</small></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="plan">
+    <div class="wrap">
+      <div class="plan rise">
+        <div>
+          <span class="eyebrow"><b></b>В любой подписке</span>
+          <h2>Три устройства сразу</h2>
+          <p>Подписка не привязана к одному телефону. Подключите три устройства одновременно —
+             например, свой телефон, ноутбук и телевизор. Понадобится больше — лимит расширяется
+             в личном кабинете до пятнадцати, доплата считается только за добавленные слоты.</p>
+          <div class="plan__facts">
+            <div><b>3</b><span>входит в подписку</span></div>
+            <div><b>15</b><span>максимум по желанию</span></div>
+          </div>
+        </div>
+
+        <div class="plan__slots" aria-hidden="true">
+          <div class="slot is-on"><svg><use href="#i-phone"/></svg><b>Телефон</b><small>подключено</small></div>
+          <div class="slot is-on"><svg><use href="#i-laptop"/></svg><b>Ноутбук</b><small>подключено</small></div>
+          <div class="slot is-on"><svg><use href="#i-tv"/></svg><b>Телевизор</b><small>подключено</small></div>
+          <div class="slot"><span class="slot__plus">+</span><b>Ещё до 12</b><small>расширяется</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq">
+    <div class="wrap">
+      <div class="sec__head rise">
+        <h2>Частые вопросы</h2>
+        <p>Коротко о главном. Если чего-то не хватает — напишите в поддержку, отвечаем в Telegram.</p>
+      </div>
+      <div class="faq">
+        <details class="rise"><summary>Можно попробовать бесплатно?</summary>
+          <p>Да. Пробный доступ выдаётся сразу после запуска бота — оплата и карта для этого не нужны. Если всё устроит, останется выбрать срок подписки.</p></details>
+        <details class="rise"><summary>Сколько устройств можно подключить?</summary>
+          <p>Базово — три устройства одновременно. Лимит расширяется прямо в личном кабинете, максимум до пятнадцати. Подписка при этом остаётся одна.</p></details>
+        <details class="rise"><summary>Нужно ли что-то настраивать вручную?</summary>
+          <p>Нет. Личный кабинет определяет ваше устройство, предлагает приложение и добавляет подписку одной кнопкой. Для телевизора используется короткий код с экрана.</p></details>
+        <details class="rise"><summary>Вы записываете, какие сайты я открываю?</summary>
+          <p>Нет. История посещений не сохраняется. Для работы сервиса нужны только данные о самой подписке: срок и число подключённых устройств.</p></details>
+        <details class="rise"><summary>Что будет со скоростью?</summary>
+          <p>Трафик не лимитируется и не замедляется. Скорость зависит от вашего провайдера и выбранного сервера — видео в высоком качестве идёт без пауз.</p></details>
+        <details class="rise"><summary>Как оплатить и можно ли вернуть деньги?</summary>
+          <p>Оплата проходит в личном кабинете. Автопродления нет — подписка продлевается только вашим действием, а неизрасходованный остаток баланса можно вывести.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="final rise">
+        <h2>Начните с бесплатного доступа</h2>
+        <p>Откройте личный кабинет на сайте или запустите бота в Telegram — подключение займёт около минуты.</p>
+        <div class="final__btns">
+          <a class="btn btn--primary" href="https://bot.on1xvpn.com/lk" target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-globe"/></svg>Личный кабинет
+          </a>
+          <a class="btn" href="https://t.me/ON1Xvpn_bot" target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-send"/></svg>Открыть в Telegram
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<main id="viewLegal" hidden>
+  <div class="legal" id="legal">
+    <div class="wrap">
+      <a class="legal__back" href="#home"><svg aria-hidden="true"><use href="#i-back"/></svg>На главную</a>
+      <h1>Документы</h1>
+      <p class="legal__lead">Условия использования сервиса ON1X VPN и правила обработки данных.</p>
+
+      <div class="legal__tabs" role="tablist" aria-label="Документы сервиса">
+        <button class="legal__tab" type="button" role="tab" id="tab-terms" data-doc="terms" aria-controls="doc-terms" aria-selected="true">Пользовательское соглашение</button>
+        <button class="legal__tab" type="button" role="tab" id="tab-privacy" data-doc="privacy" aria-controls="doc-privacy" aria-selected="false">Политика конфиденциальности</button>
+      </div>
+
+      <article class="doc" id="doc-terms" role="tabpanel" aria-labelledby="tab-terms" tabindex="-1">
+        <h2>Пользовательское соглашение</h2>
+        <p class="doc__date">Редакция от 1 сентября 2026 года</p>
+        <p>Настоящее Пользовательское соглашение (далее — «Соглашение») регулирует отношения между администрацией сервиса ON1X VPN (далее — «Сервис»), доступного через Telegram-бот <a href="https://t.me/ON1Xvpn_bot" target="_blank" rel="noopener">@ON1Xvpn_bot</a>, и физическим лицом, использующим Сервис (далее — «Пользователь»). Использование Сервиса означает полное и безоговорочное принятие Пользователем условий настоящего Соглашения.</p>
+
+        <h3>1. Предмет соглашения</h3>
+        <p>1.1. Сервис предоставляет Пользователю доступ к виртуальной частной сети (VPN) для обеспечения конфиденциальности и безопасности в сети Интернет.</p>
+        <p>1.2. Технические характеристики, тарифы и способы оплаты доступны непосредственно в интерфейсе Telegram-бота.</p>
+
+        <h3>2. Права и обязанности сторон</h3>
+        <p><strong>2.1. Сервис обязуется:</strong></p>
+        <ul>
+          <li>Обеспечивать работоспособность серверов и доступность услуг в меру технических возможностей.</li>
+          <li>Обеспечивать конфиденциальность данных Пользователя в соответствии с Политикой конфиденциальности.</li>
+        </ul>
+        <p>2.2. <strong>Пользователь обязуется:</strong></p>
+        <ul>
+          <li>Использовать Сервис только в законных целях.</li>
+          <li>Не использовать Сервис для совершения противоправных действий, включая, но не ограничиваясь хакерские атаки, распространение вредоносного ПО, спам, нарушение авторских прав и распространение запрещённого законодательством контента.</li>
+          <li>Не совершать действий, направленных на дестабилизацию работы Сервиса.</li>
+        </ul>
+
+        <h3>3. Порядок оплаты и возврата средств</h3>
+        <p>3.1. Доступ к платным функциям Сервиса предоставляется на условиях 100% предоплаты согласно выбранному тарифу.</p>
+        <p>3.2. Все транзакции обрабатываются через сторонние платёжные шлюзы. Сервис не хранит данные банковских карт Пользователей.</p>
+        <p>3.3. <strong>Политика возврата.</strong> Ввиду цифровой природы услуги, возврат денежных средств за активированную подписку не предусмотрен, за исключением случаев длительной неработоспособности Сервиса по вине администрации.</p>
+
+        <h3>4. Отказ от ответственности</h3>
+        <p>4.1. Услуги предоставляются по принципу «как есть» (as is). Администрация не гарантирует, что Сервис будет соответствовать всем ожиданиям Пользователя или работать непрерывно.</p>
+        <p>4.2. Сервис не несёт ответственности за качество интернет-соединения на стороне Пользователя; прямые или косвенные убытки, возникшие в результате использования или невозможности использования Сервиса; блокировку Сервиса государственными органами в стране нахождения Пользователя.</p>
+
+        <h3>5. Конфиденциальность (No-Logs Policy)</h3>
+        <p>5.1. ON1X VPN придерживается политики «без логов» в отношении активности Пользователей. Мы не собираем и не храним данные о том, какие ресурсы посещает Пользователь и какой трафик передаёт через наши серверы.</p>
+        <p>5.2. Для работы Сервиса собираются минимально необходимые данные: Telegram ID пользователя и история транзакций внутри бота.</p>
+
+        <h3>6. Изменение условий</h3>
+        <p>6.1. Администрация оставляет за собой право изменять настоящее Соглашение в любое время без предварительного уведомления.</p>
+        <p>6.2. Продолжение использования Сервиса после внесения изменений означает согласие Пользователя с новой редакцией Соглашения.</p>
+
+        <h3>7. Заключительные положения</h3>
+        <p>7.1. Настоящее Соглашение является юридически значимым договором между Пользователем и Сервисом.</p>
+        <p>7.2. В случае возникновения вопросов или претензий Пользователь может обратиться в <a href="https://t.me/ON1Xvpn_support" target="_blank" rel="noopener">службу поддержки</a> через контактные данные, указанные в Telegram-боте.</p>
+
+        <p class="doc__note">Прямая ссылка на этот документ: <strong>#terms</strong> (или /legal/terms).</p>
+      </article>
+
+      <article class="doc" id="doc-privacy" role="tabpanel" aria-labelledby="tab-privacy" tabindex="-1" hidden>
+        <h2>Политика конфиденциальности</h2>
+        <p class="doc__date">Редакция от 1 сентября 2026 года</p>
+        <p>Сервис ON1X VPN (далее — «Сервис») уважает ваше право на конфиденциальность. Данная Политика объясняет, какие данные мы собираем, как мы их используем и почему вы можете быть уверены в своей безопасности при использовании нашего Telegram-бота и VPN-узлов.</p>
+
+        <h3>Политика отсутствия логов (No-Logs Policy)</h3>
+        <p>Мы придерживаемся строгой политики отсутствия логов. Это означает:</p>
+        <ul>
+          <li>Мы <strong>не</strong> собираем и не храним информацию о ваших действиях в интернете (посещённые сайты, поисковые запросы, скачанные файлы).</li>
+          <li>Мы <strong>не</strong> регистрируем ваш реальный IP-адрес при подключении к нашим VPN-серверам.</li>
+          <li>Мы <strong>не</strong> храним информацию о том, какой контент вы передаёте или получаете через Сервис.</li>
+        </ul>
+
+        <h3>Какие данные мы собираем</h3>
+        <p>Для функционирования личного кабинета в Telegram и обеспечения доступа к подписке мы собираем только необходимый минимум:</p>
+        <ul>
+          <li><strong>Telegram ID.</strong> Уникальный идентификатор вашего аккаунта в Telegram. Он нужен для привязки подписки к вашему профилю.</li>
+          <li><strong>История транзакций.</strong> Данные о пополнении баланса и покупке тарифов внутри бота (сумма, дата, статус оплаты).</li>
+        </ul>
+
+        <h3>Использование данных</h3>
+        <p>Мы используем собранные данные исключительно для:</p>
+        <ul>
+          <li>Обеспечения доступа к услугам VPN.</li>
+          <li>Обработки платежей и продления подписок.</li>
+          <li>Оказания технической поддержки по вашему запросу.</li>
+          <li>Рассылки уведомлений об истечении срока действия подписки или важных изменениях в работе Сервиса через Telegram.</li>
+        </ul>
+
+        <h3>Передача данных третьим лицам</h3>
+        <p><strong>Платёжные системы.</strong> При совершении оплаты данные обрабатываются сертифицированными платёжными провайдерами. Мы не имеем доступа к реквизитам ваших банковских карт.</p>
+        <p><strong>Правоохранительные органы.</strong> Мы не храним историю ваших действий и реальные IP-адреса, поэтому нам технически нечего передать по запросу третьих лиц в отношении вашей интернет-активности.</p>
+
+        <h3>Защита и безопасность</h3>
+        <p>Мы используем современные протоколы шифрования и защищённые серверы для обеспечения безопасности данных. Весь трафик между вашим устройством и VPN-сервером зашифрован, что делает его недоступным для перехвата интернет-провайдером или злоумышленниками.</p>
+
+        <h3>Ваши права</h3>
+        <p>Вы имеете право:</p>
+        <ul>
+          <li>В любой момент прекратить использование Сервиса.</li>
+          <li>Запросить удаление вашего профиля и всех связанных данных из базы данных бота — для этого обратитесь в <a href="https://t.me/ON1Xvpn_support" target="_blank" rel="noopener">поддержку</a>.</li>
+        </ul>
+
+        <h3>Изменения в политике</h3>
+        <p>Мы можем обновлять данную Политику по мере развития Сервиса. Информация об обновлениях будет публиковаться в Telegram-боте ON1X VPN.</p>
+
+        <p class="doc__note">Прямая ссылка на этот документ: <strong>#privacy</strong> (или /legal/privacy).</p>
+      </article>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span class="foot__brand"><span class="brand__mark" aria-hidden="true"></span><small>© <span id="year">2026</span> ON1X VPN</small></span>
+    <nav class="foot__links" aria-label="Ссылки в подвале">
+      <a href="https://bot.on1xvpn.com/lk" target="_blank" rel="noopener">Личный кабинет</a>
+      <a href="https://t.me/ON1Xvpn_bot" target="_blank" rel="noopener">Telegram-бот</a>
+      <a href="https://t.me/ON1Xvpn_support" target="_blank" rel="noopener">Поддержка</a>
+      <a href="#terms">Соглашение</a>
+      <a href="#privacy">Политика</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="pick" id="pickBox" hidden>
+  <div class="pick__scrim" data-pick-close></div>
+  <div class="pick__box" role="dialog" aria-modal="true" aria-labelledby="pickTitle">
+    <button class="pick__x" type="button" aria-label="Закрыть" data-pick-close>&times;</button>
+    <h3 id="pickTitle">Где подключимся?</h3>
+    <p>Оба способа ведут в один и тот же личный кабинет — выбирайте, что удобнее.</p>
+    <div class="pick__opts">
+      <a class="pick__opt" href="https://bot.on1xvpn.com/lk" target="_blank" rel="noopener">
+        <span class="pick__ic"><svg aria-hidden="true"><use href="#i-globe"/></svg></span>
+        <span class="pick__tx"><b>На сайте</b><small>Откроется в браузере</small></span>
+        <span class="pick__go" aria-hidden="true">&rsaquo;</span>
+      </a>
+      <a class="pick__opt" href="https://t.me/ON1Xvpn_bot" target="_blank" rel="noopener">
+        <span class="pick__ic"><svg aria-hidden="true"><use href="#i-send"/></svg></span>
+        <span class="pick__tx"><b>В Telegram</b><small>Бот и уведомления о подписке</small></span>
+        <span class="pick__go" aria-hidden="true">&rsaquo;</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var root = document.documentElement;
+  var themeBtns = [document.getElementById("themeBtn"), document.getElementById("themeBtnMob")].filter(Boolean);
+  var themeMeta = document.querySelector('meta[name="theme-color"]');
+
+  function paintTheme(){
+    var light = root.getAttribute("data-theme") === "light";
+    themeBtns.forEach(function(b){
+      var use = b.querySelector("use");
+      if (use) use.setAttribute("href", light ? "#i-moon" : "#i-sun");
+    });
+    if (themeMeta) themeMeta.setAttribute("content", light ? "#EDF2F6" : "#080B12");
+  }
+  try {
+    var savedTheme = localStorage.getItem("on1x_site_theme");
+    if (savedTheme === "light" || savedTheme === "dark") root.setAttribute("data-theme", savedTheme);
+  } catch (e) {}
+  paintTheme();
+  themeBtns.forEach(function(b){
+    b.addEventListener("click", function(){
+      var next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("on1x_site_theme", next); } catch (e) {}
+      paintTheme();
+    });
+  });
+
+  var header = document.getElementById("top");
+  var burger = document.getElementById("burger");
+  var mob = document.getElementById("mobileNav");
+
+  function menuOpen(){ return burger.getAttribute("aria-expanded") === "true"; }
+  function setMenu(open){
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+    mob.hidden = !open;
+  }
+  burger.addEventListener("click", function(e){
+    e.stopPropagation();
+    setMenu(!menuOpen());
+  });
+  Array.prototype.forEach.call(mob.querySelectorAll("a"), function(a){
+    a.addEventListener("click", function(){ setMenu(false); });
+  });
+  document.addEventListener("pointerdown", function(e){
+    if (menuOpen() && !header.contains(e.target)) setMenu(false);
+  });
+  document.addEventListener("focusin", function(e){
+    if (menuOpen() && !header.contains(e.target)) setMenu(false);
+  });
+  window.addEventListener("resize", function(){ if (window.innerWidth >= 1100) setMenu(false); });
+
+  var viewHome = document.getElementById("viewHome");
+  var viewLegal = document.getElementById("viewLegal");
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".legal__tab"));
+  var panels = { terms: document.getElementById("doc-terms"), privacy: document.getElementById("doc-privacy") };
+  var titles = {
+    home: "ON1X VPN — свободный интернет",
+    terms: "Пользовательское соглашение — ON1X VPN",
+    privacy: "Политика конфиденциальности — ON1X VPN"
+  };
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".nav-desk a[href^='#'], .nav-mob a[href^='#']"));
+
+  function showDoc(name){
+    var doc = panels[name] ? name : "terms";
+    Object.keys(panels).forEach(function(key){ panels[key].hidden = key !== doc; });
+    tabs.forEach(function(t){ t.setAttribute("aria-selected", t.getAttribute("data-doc") === doc ? "true" : "false"); });
+    return doc;
+  }
+
+  function currentRoute(){
+    var h = location.hash.replace(/^#\/?/, "").toLowerCase();
+    if (h) return h;
+    return location.pathname.toLowerCase().replace(/^\/+|\/+$/g, "");
+  }
+
+  function route(scroll){
+    var t = currentRoute();
+    var legal = /^legal(?:\/(privacy|terms))?$/.exec(t);
+    var doc = null;
+
+    if (legal) doc = legal[1] || "terms";
+    else if (t === "privacy" || t === "terms") doc = t;
+
+    if (doc) {
+      doc = showDoc(doc);
+      viewHome.hidden = true;
+      viewLegal.hidden = false;
+      document.title = titles[doc];
+      if (scroll !== false) window.scrollTo(0, 0);
+    } else {
+      viewLegal.hidden = true;
+      viewHome.hidden = false;
+      document.title = titles.home;
+      var target = t ? document.getElementById(t) : null;
+      if (scroll !== false) {
+        if (target && t !== "home") target.scrollIntoView();
+        else window.scrollTo(0, 0);
+      }
+    }
+
+    navLinks.forEach(function(a){
+      var to = a.getAttribute("href").slice(1);
+      a.classList.toggle("is-active", doc ? (to === "legal" || to === doc) : to === t);
+    });
+  }
+
+  tabs.forEach(function(t){
+    t.addEventListener("click", function(){
+      var name = t.getAttribute("data-doc");
+      if (currentRoute() === name) showDoc(name);
+      else location.hash = "#" + name;
+    });
+  });
+
+  window.addEventListener("hashchange", function(){ route(true); });
+  window.addEventListener("popstate", function(){ route(true); });
+  route(false);
+
+  var pick = document.getElementById("pickBox");
+  var pickBox = pick.querySelector(".pick__box");
+  var lastFocused = null;
+
+  function openPick(){
+    lastFocused = document.activeElement;
+    pick.hidden = false;
+    document.body.classList.add("locked");
+    setMenu(false);
+    var first = pick.querySelector(".pick__opt");
+    if (first) first.focus();
+  }
+  function closePick(){
+    pick.hidden = true;
+    document.body.classList.remove("locked");
+    if (lastFocused && lastFocused.focus) lastFocused.focus();
+  }
+  Array.prototype.forEach.call(document.querySelectorAll("[data-connect]"), function(b){
+    b.addEventListener("click", openPick);
+  });
+  Array.prototype.forEach.call(pick.querySelectorAll("[data-pick-close]"), function(x){
+    x.addEventListener("click", closePick);
+  });
+  Array.prototype.forEach.call(pick.querySelectorAll(".pick__opt"), function(a){
+    a.addEventListener("click", function(){ setTimeout(closePick, 120); });
+  });
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape") {
+      if (!pick.hidden) { closePick(); return; }
+      if (menuOpen()) setMenu(false);
+      return;
+    }
+    if (e.key !== "Tab" || pick.hidden) return;
+    var focusable = pickBox.querySelectorAll("a[href], button:not([disabled])");
+    if (!focusable.length) return;
+    var first = focusable[0], last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+
+  var items = document.querySelectorAll(".rise");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en, i){
+        if (!en.isIntersecting) return;
+        var el = en.target;
+        setTimeout(function(){ el.classList.add("in"); }, Math.min(i * 55, 165));
+        io.unobserve(el);
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
+    Array.prototype.forEach.call(items, function(el){ io.observe(el); });
+  } else {
+    Array.prototype.forEach.call(items, function(el){ el.classList.add("in"); });
+  }
+
+  function onScroll(){ header.classList.toggle("is-stuck", window.scrollY > 8); }
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+})();
+</script>
 </body>
 </html>
